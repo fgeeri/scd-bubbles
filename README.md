@@ -10,14 +10,14 @@ The data used is based on the [Swiss Federal Supreme Court Dataset](https://zeno
 
 The resulting `bubbles.json` data has the following structure:
 ```
-{"docref":"1B_8/2007","date":"2007-02-28","size":13874,"colour":"r","leading_case":false,"app_represented":true,"area_general":"s"}
+{"docref":"1B_8/2007","date":"2007-02-28","size":13874,"colour":"r","leading_case":false,"app_represented":true,"area_general":"s","duration":3989}
 ```
 
-`docref` contains the judgment identifier.
+`docref` is a string that contains the judgment identifier.
 
-`date` contains the decision date of the judgment in the format YYYY-MM-DD.
+`date` is a date in YYYY-MM-DD format that contains the decision date of the judgment in the format YYYY-MM-DD.
 
-`size` contains the length of the judgment text in characters (integer).
+`size` is an integer that contains the length of the judgment text in characters.
 
 `colour` is a single character representing the judgment outcome: `g` = granted, `p` = partly granted, `r` = rejected, `i` = inadmissible, `w` = writeoff.
 
@@ -26,3 +26,5 @@ The resulting `bubbles.json` data has the following structure:
 `app_represented` is a boolean that indicates if the appellant was represented by a lawyer.
 
 `area_general` is a single character representing the area of law: `s` = strafrecht, `o` = oeffentliches recht, `p` = privatrecht.
+
+`duration` is an integer between 0 and 8948, representing the log of the duration of proceedings, multiplied by 1000.
