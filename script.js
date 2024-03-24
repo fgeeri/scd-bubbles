@@ -2,7 +2,7 @@
 // Function to fetch data from data.json
 async function fetchData() {
     try {
-        const response = await fetch('data.json');
+        const response = await fetch('bubbles.json');
         const data = await response.json();
         return data;
     } catch (error) {
@@ -17,13 +17,14 @@ function createDots(data) {
     const visualization = document.querySelector('.visualization');
 
     // Loop through the data and create a dot for each entry
-    for (let i = 0; i < data.length; i++) {
+    for (let i = 0; i < 1000; i++) {
         const entry = data[i];
         const dot = document.createElement('div');
+        console.log(entry)
         dot.classList.add('dot');
-        dot.style.backgroundColor = getColor2(entry.outcome); // Set dot color
-        dot.style.width = (entry.length / 200) + 'px'; // Set dot size
-        dot.style.height = (entry.length / 200) + 'px'; // Set dot size
+        dot.style.backgroundColor = getColor(entry.colour); // Set dot color
+        dot.style.width = (entry.size / 200) + 'px'; // Set dot size
+        dot.style.height = (entry.size / 200) + 'px'; // Set dot size
         dot.style.position = 'absolute'; // Set position to absolute for manual positioning
         dot.style.top = '100%'; // Set initial position at the bottom of the visualization area
         dot.style.left = Math.random() * 100 + '%'; // Set dot position randomly
