@@ -12,14 +12,15 @@ async function fetchData() {
     }
 }
 
-async function createDots(data) {
+
+
+// Function to create floating dots based on the fetched data
+function createDots(data) {
     const visualization = document.querySelector('.visualization');
 
-    // Delay execution by 1 second
-    await new Promise(resolve => setTimeout(resolve, 1000));
-
     // Loop through the data and create a dot for each entry
-    data.forEach(entry => {
+    for (let i = 0; i < data.length; i++) {
+        const entry = data[i];
         const dot = document.createElement('div');
         dot.classList.add('dot');
         dot.style.backgroundColor = getColor2(entry.outcome); // Set dot color
@@ -28,17 +29,16 @@ async function createDots(data) {
         dot.style.top = '100%'; // Set initial position at the bottom of the visualization area
         dot.style.left = Math.random() * 100 + '%'; // Set dot position randomly
         visualization.appendChild(dot);
-    });
 
-    // Add animation
-    const dots = document.querySelectorAll('.dot');
-    dots.forEach((dot, index) => {
+        // Add animation
         dot.style.animationDuration = animationDuration + 's';
         dot.style.animationTimingFunction = 'linear';
-        dot.style.animationDelay = index * 1 + 's'; // Delay each dot by index seconds
-    });
+        dot.style.animationDelay = i * 1 + 's'; // Delay each dot by i seconds
+        
+        // Delay execution by 1 second
+        //await new Promise(resolve => setTimeout(resolve, 1000));
+    }
 }
-
 
 // Function to get color based on colour code
 function getColor(colourCode) {
