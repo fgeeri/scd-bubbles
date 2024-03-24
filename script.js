@@ -1,9 +1,9 @@
 // script.js
 // Function to fetch data from data.json
-async function fetchData() {
+async function fetchData(startDate = "2007-01-18") {
     try {
         const response = await fetch('bubbles.json');
-        const data = await response.json();
+        let data = await response.json();
 
         // Sort the data by date
         data.sort((a, b) => {
@@ -11,6 +11,12 @@ async function fetchData() {
             const dateA = new Date(a.date);
             const dateB = new Date(b.date);
             return dateA - dateB;
+        });
+
+        // Filter out entries with dates lower than the provided date
+        data = data.filter(entry => {
+            const entryDate = new Date(entry.date);
+            return entryDate >= new Date(startDate);
         });
 
         return data;
@@ -22,9 +28,9 @@ async function fetchData() {
 
 const loadBatch = 1000
 let currentDate="";
+const visualization = document.querySelector('.visualization');
 function createDots(data) {
-    const visualization = document.querySelector('.visualization');
-    
+        
     //Set the start date
     currentDate=data[0].date;
     updateDateIndicator(data[0].date);
@@ -61,6 +67,15 @@ function removeDots(visualization) {
     for (let i = 0; i < (loadBatch-50); i++) {
         visualization.removeChild(dots[i]);
     }
+}
+
+function removeAllDots(){
+    const dots = visualization.querySelectorAll('.dot');
+
+    // Loop through each dot and remove it from the DOM
+    dots.forEach(dot => {
+        dot.remove();
+    });
 }
 
 // Function to animate a dot
@@ -114,6 +129,23 @@ function getColor(colourCode) {
             return '#ffff99';
     }
 }
+
+//date picker
+async function handleDateSet(event) {
+    const selectedDate = event.target.value;
+    if(new Date(selectedDate) > new Date("2023-12-29") || new Date(selectedDate) < new Date("2007-01-18")){
+        alert('Select a date beween 2007-01-18 and 2023-12-29.');
+    } else{
+        const data = await fetchData(selectedDate);
+        removeAllDots();
+        currentDate=selectedDate;
+        updateDateIndicator(selectedDate);
+        createDots(data);
+    }
+}
+const datePicker = document.getElementById('date-picker');
+datePicker.addEventListener('input', handleDateSet);
+
 
 // Fetch data and create dots when the page loads
 window.addEventListener('load', async () => {
