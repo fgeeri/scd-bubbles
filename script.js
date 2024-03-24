@@ -52,7 +52,8 @@ function removeDots(visualization) {
 
 // Function to animate a dot
 function animateDot(dot, index) {
-    const animationDuration = 20000; // Animation duration in milliseconds
+
+    const animationDuration = 15000 + Math.random()*5000; // Animation duration in milliseconds
 
     // Start the animation
     dot.animate(
