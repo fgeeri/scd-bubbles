@@ -88,24 +88,6 @@ function getColor(colourCode) {
     }
 }
 
-// Function to get color based on colour code
-function getColor2(colourCode) {
-    switch (colourCode) {
-        case 'granted':
-            return '#1a9641';
-        case 'partly granted':
-            return '#a6d96a';
-        case 'rejected':
-            return '#e6550d';
-        case 'inadmissible':
-            return '#fdae61';
-        case 'writeoff':
-            return '#d9d9d9';
-        default:
-            return '#ffff99';
-    }
-}
-
 // Fetch data and create dots when the page loads
 window.addEventListener('load', async () => {
     const data = await fetchData();
