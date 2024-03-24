@@ -11,13 +11,12 @@ async function fetchData() {
     }
 }
 
-
-
+const loadBatch = 1000
 function createDots(data) {
     const visualization = document.querySelector('.visualization');
 
     // Loop through the data and create a dot for each entry
-    for (let i = 0; i < 1000; i++) {
+    for (let i = 0; i < loadBatch; i++) {
         const entry = data[i];
         const dot = document.createElement('div');
         console.log(entry)
@@ -32,6 +31,22 @@ function createDots(data) {
 
         // Animate the dot
         animateDot(dot, i);
+        // If it's the last dot, remove all dots and load the next batch after 1000 seconds
+        if (i === (loadBatch-1) || !data[i + 1]) {
+            setTimeout(async () => {
+                await removeDots(visualization);
+                await createDots(data.slice(i + 1)); // Load the next batch of bubbles
+            }, loadBatch * 1000); // 1000 seconds (1000 * 1000 milliseconds)
+            break; // Exit the loop as we've scheduled the next batch loading
+        }
+    }
+}
+
+// Function to remove the last 950 bubbles
+function removeDots(visualization) {
+    const dots = visualization.querySelectorAll('.dot');
+    for (let i = 0; i < (loadBatch-50); i++) {
+        visualization.removeChild(dots[i]);
     }
 }
 
