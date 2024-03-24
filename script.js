@@ -46,7 +46,17 @@ function createDots(data) {
         dot.style.position = 'absolute'; // Set position to absolute for manual positioning
         dot.style.top = '100%'; // Set initial position at the bottom of the visualization area
         dot.style.left = Math.random() * 100 + '%'; // Set dot position randomly
+        dot.id = entry.docref;
         visualization.appendChild(dot);
+
+        dot.addEventListener('mouseenter', function() {
+            const id = dot.id;
+            dot.textContent = id;
+          });
+        
+          dot.addEventListener('mouseleave', function() {
+            dot.textContent = "";
+          });
 
         // Animate the dot
         animateDot(dot, i, entry);
