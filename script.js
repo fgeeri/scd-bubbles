@@ -1,5 +1,5 @@
 // script.js
-
+const animationDuration = 20; // Animation duration in seconds
 // Function to fetch data from data.json
 async function fetchData() {
     try {
@@ -13,47 +13,29 @@ async function fetchData() {
 }
 
 // Function to create floating dots based on the fetched data
-function createDots(data) {
+async function createDots(data) {
     const visualization = document.querySelector('.visualization');
 
     // Loop through the data and create a dot for each entry
-    data.forEach(entry => {
+    for (let i = 0; i < data.length; i++) {
+        const entry = data[i];
         const dot = document.createElement('div');
         dot.classList.add('dot');
-        dot.style.backgroundColor = getColor(entry.colour); // Set dot color
-        dot.style.width = entry.size + 'px'; // Set dot size
-        dot.style.height = entry.size + 'px'; // Set dot size
+        dot.style.backgroundColor = getColor2(entry.outcome); // Set dot color
+        dot.style.width = (entry.length / 200) + 'px'; // Set dot size
+        dot.style.height = (entry.length / 200) + 'px'; // Set dot size
         dot.style.top = '100%'; // Set initial position at the bottom of the visualization area
-        dot.style.left = Math.random() * (100) + '%'; // Set dot position randomly
+        dot.style.left = Math.random() * 100 + '%'; // Set dot position randomly
         visualization.appendChild(dot);
+
+        // Add animation
+        dot.style.animationDuration = animationDuration + 's';
+        dot.style.animationTimingFunction = 'linear';
+        dot.style.animationDelay = i * 1 + 's'; // Delay each dot by i seconds
         
-        // Add animation
-        const animationDuration = 20; // Animation duration in seconds
-        dot.style.animationDuration = animationDuration + 's';
-        dot.style.animationTimingFunction = 'linear';
-    });
-}
-
-// Function to create floating dots based on the fetched data
-function createDots2(data) {
-    const visualization = document.querySelector('.visualization');
-
-    // Loop through the data and create a dot for each entry
-    data.forEach(entry => {
-        const dot = document.createElement('div');
-        dot.classList.add('dot');
-        dot.style.backgroundColor = getColor(entry.colour); // Set dot color
-        dot.style.width = entry.size + 'px'; // Set dot size
-        dot.style.height = entry.size + 'px'; // Set dot size
-        dot.style.top = 'calc(100% - ' + entry.timing + 'px)'; // Set dot position
-        dot.style.left = Math.random() * (100 - entry.size) + '%'; // Set dot position randomly
-        visualization.appendChild(dot);
-
-        // Add animation
-        const animationDuration = 5 + Math.random() * 5; // Random duration between 5 and 10 seconds
-        dot.style.animationDuration = animationDuration + 's';
-        dot.style.animationTimingFunction = 'linear';
-    });
+        // Delay execution by 1 second
+        await new Promise(resolve => setTimeout(resolve, 1000));
+    }
 }
 
 // Function to get color based on colour code
@@ -68,6 +50,24 @@ function getColor(colourCode) {
         case 'i':
             return '#fdae61';
         case 'w':
+            return '#d9d9d9';
+        default:
+            return '#ffff99';
+    }
+}
+
+// Function to get color based on colour code
+function getColor2(colourCode) {
+    switch (colourCode) {
+        case 'granted':
+            return '#1a9641';
+        case 'partly granted':
+            return '#a6d96a';
+        case 'rejected':
+            return '#e6550d';
+        case 'inadmissible':
+            return '#fdae61';
+        case 'writeoff':
             return '#d9d9d9';
         default:
             return '#ffff99';
