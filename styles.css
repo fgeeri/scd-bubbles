@@ -1,5 +1,8 @@
 /* styles.css */
 
+/* Disable scroll */
+html, body {margin: 0; height: 100%; overflow: hidden}
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -67,7 +70,7 @@ footer {
 }
 
 .dot {
-    position: absolute;
+    position: relative;
     border-radius: 50%;
     animation-name: floatUp;
     animation-timing-function: linear;
