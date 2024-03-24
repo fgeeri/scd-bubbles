@@ -144,7 +144,7 @@ async function handleDateSet(event) {
     }
 }
 const datePicker = document.getElementById('date-picker');
-datePicker.addEventListener('input', handleDateSet);
+datePicker.addEventListener('change', handleDateSet);
 
 
 // Fetch data and create dots when the page loads
