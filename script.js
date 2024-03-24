@@ -130,6 +130,13 @@ function getColor(colourCode) {
     }
 }
 
+function playSound(sound) {
+    // Create an audio element
+    var audio = new Audio(sound+'.wav');
+    // Play the audio
+    audio.play();
+}
+
 //date picker
 async function handleDateSet(event) {
     const selectedDate = event.target.value;
