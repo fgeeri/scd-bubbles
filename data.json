@@ -1,0 +1,12 @@
+[
+  { "date": "2024-03-23", "timing": 32, "size": 245, "colour": "g" },
+  { "date": "2024-03-23", "timing": 64, "size": 64, "colour": "p" },
+  { "date": "2024-03-23", "timing": 96, "size": 54, "colour": "r" },
+  { "date": "2024-03-23", "timing": 128, "size": 150, "colour": "i" },
+  { "date": "2024-03-23", "timing": 192, "size": 99, "colour": "w" },
+  { "date": "2024-03-24", "timing": 16, "size": 179, "colour": "g" },
+  { "date": "2024-03-24", "timing": 48, "size": 178, "colour": "p" },
+  { "date": "2024-03-24", "timing": 52, "size": 124, "colour": "r" },
+  { "date": "2024-03-24", "timing": 77, "size": 219, "colour": "i" },
+  { "date": "2024-03-24", "timing": 132, "size": 2, "colour": "w" }
+]
