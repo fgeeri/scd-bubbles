@@ -1,25 +1,12 @@
 /* styles.css */
 
 /* Disable scroll */
-html, body {margin: 0; height: 100%; overflow: hidden}
+
 
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #f2f2f2; /* Light grey background */
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.visualization {
-    height: 80vh; /* 80% of viewport height */
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 5px;
 }
 
 footer {
@@ -36,8 +23,7 @@ footer {
     justify-content: center;
 }
 
-.volume-control label,
-.date-selector label, {
+.date-selector label {
     margin-right: 10px;
 }
 
@@ -72,17 +58,6 @@ footer {
 .dot {
     position: relative;
     border-radius: 50%;
-    animation-name: floatUp;
-    animation-timing-function: linear;
+
 }
 
-@keyframes floatUp {
-    0% {
-        top: 100%; /* Start from the bottom */
-        opacity: 0.8; /* Fully visible */
-    }
-    100% {
-        top: -50px; /* Move to the top and a bit further */
-        opacity: 0.8; /* Fade out */
-    }
-}

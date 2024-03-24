@@ -1,5 +1,4 @@
 // script.js
-const animationDuration = 20; // Animation duration in seconds
 // Function to fetch data from data.json
 async function fetchData() {
     try {
@@ -14,7 +13,6 @@ async function fetchData() {
 
 
 
-// Function to create floating dots based on the fetched data
 function createDots(data) {
     const visualization = document.querySelector('.visualization');
 
@@ -26,18 +24,33 @@ function createDots(data) {
         dot.style.backgroundColor = getColor2(entry.outcome); // Set dot color
         dot.style.width = (entry.length / 200) + 'px'; // Set dot size
         dot.style.height = (entry.length / 200) + 'px'; // Set dot size
+        dot.style.position = 'absolute'; // Set position to absolute for manual positioning
         dot.style.top = '100%'; // Set initial position at the bottom of the visualization area
         dot.style.left = Math.random() * 100 + '%'; // Set dot position randomly
         visualization.appendChild(dot);
 
-        // Add animation
-        dot.style.animationDuration = animationDuration + 's';
-        dot.style.animationTimingFunction = 'linear';
-        dot.style.animationDelay = i * 1 + 's'; // Delay each dot by i seconds
-        
-        // Delay execution by 1 second
-        //await new Promise(resolve => setTimeout(resolve, 1000));
+        // Animate the dot
+        animateDot(dot, i);
     }
+}
+
+// Function to animate a dot
+function animateDot(dot, index) {
+    const animationDuration = 20000; // Animation duration in milliseconds
+
+    // Start the animation
+    dot.animate(
+        [
+            { top: '100%', opacity: 0.8 }, // From bottom with opacity
+            { top: '-200px', opacity: 0.8 } // To top with opacity
+        ],
+        {
+            duration: animationDuration, // Duration with delay based on index
+            easing: 'linear', // Linear animation
+            fill: 'forwards', // Keep the final state of the animation
+            delay: index * 1000 // Delay based on index
+        }
+    );
 }
 
 // Function to get color based on colour code
