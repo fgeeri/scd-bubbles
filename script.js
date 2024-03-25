@@ -184,6 +184,16 @@ async function handleDateSet(event) {
 const datePicker = document.getElementById('date-picker');
 datePicker.addEventListener('change', handleDateSet);
 
+// Overlay
+function toggleOverlay() {
+  var overlay = document.getElementById("overlay");
+  if (overlay.style.display === "block") {
+    overlay.style.display = "none";
+  } else {
+    overlay.style.display = "block";
+  }
+}
+
 // Dark mode toggle
 function toggleDarkMode() {
   var element = document.body;
