@@ -21,7 +21,7 @@
         <div id="overlay" class="overlay">
             <div class="flex-container">
                 <div class="flex-content">
-                    <h2 id="-scd-bubbles-"><code>scd-bubbles</code> 🫧</h2>
+                    <h2 id="-scd-bubbles-">scd-bubbles 🫧</h2>
                     <p><code>scd-bubbles</code> is an open source web app that visualises the decisions of the Swiss
                         Federal Court 🇨🇭🏛. Every judgments is represented by a bubble, with the properties of the
                         bubbles reflecting information about the case 🫧. It was created at the <a
@@ -37,33 +37,10 @@
                     <p><code>scd-bubbles</code> is a fun way to gain an understanding of the caseload that the Swiss
                         Federal Court is dealing with and conveys in a very broad sense information about the decisions
                         taken in a (dis-)aggregated from. It is also suitable for meditative practices.</p>
-                    <h2 id="data">Data</h2>
-                    <p>The data used is based on the <a href="https://zenodo.org/records/10634296">Swiss Federal Supreme
-                            Court Dataset</a> (<em>F. Geering and J. Merane, &quot;Swiss Federal Supreme Court Dataset
-                            (SCD)&quot;. Zenodo, 2023–2024. doi: 10.5281/zenodo.10634296</em>). Using the
-                        <code>data_preparation.R</code> script, the dataset is pre-processed for visualisation and
-                        converted to JSON, while reducing the file size by eliminating unneeded variables.</p>
-                    <p>The resulting <code>bubbles.json</code> data has the following structure:</p>
-                    <pre><code>{<span class="hljs-attr">"docref"</span>:<span class="hljs-string">"1B_8/2007"</span>,<span class="hljs-attr">"date"</span>:<span class="hljs-string">"2007-02-28"</span>,<span class="hljs-attr">"size"</span>:<span class="hljs-number">13874</span>,<span class="hljs-attr">"colour"</span>:<span class="hljs-string">"r"</span>,<span class="hljs-attr">"leading_case"</span>:<span class="hljs-literal">false</span>,<span class="hljs-attr">"app_represented"</span>:<span class="hljs-literal">true</span>,<span class="hljs-attr">"area_general"</span>:<span class="hljs-string">"s"</span>,<span class="hljs-attr">"duration"</span>:<span class="hljs-number">3989</span>}
-</code></pre>
-                    <p><code>docref</code> is a string that contains the judgment identifier.</p>
-                    <p><code>date</code> is a date in YYYY-MM-DD format that contains the decision date of the judgment
-                        in the format YYYY-MM-DD.</p>
-                    <p><code>size</code> is an integer that contains the length of the judgment text in characters.</p>
-                    <p><code>colour</code> is a single character representing the judgment outcome: <code>g</code> =
-                        granted, <code>p</code> = partly granted, <code>r</code> = rejected, <code>i</code> =
-                        inadmissible, <code>w</code> = writeoff.</p>
-                    <p><code>leading_case</code> is a boolean that indicates if the judgment was published as leading
-                        case.</p>
-                    <p><code>app_represented</code> is a boolean that indicates if the appellant was represented by a
-                        lawyer.</p>
-                    <p><code>area_general</code> is a single character representing the area of law: <code>s</code> =
-                        strafrecht, <code>o</code> = oeffentliches recht, <code>p</code> = privatrecht.</p>
-                    <p><code>duration</code> is an integer between 0 and 8948, representing the log of the duration of
-                        proceedings, multiplied by 1000.</p>
                 </div>
                 <div class="flex-content" id="credits">
-                    <p>Bubbles was created by</p>
+                    <h2 id="--">Credits</h2>
+                    <p><em>Bubbles was created by</em></p>
                     <p>Jasper: JavaScript Wizard</p>
                     <p>Martin: JavaScript Virtuoso</p>
                     <p>Florian: Data Junkie</p>
@@ -72,6 +49,8 @@
                     <p>Lucile: Game Master</p>
                     <p>Jonas: Sound Designer</p>
                     <p>Caroline: Guest Appearance</p>
+                <div class="flex-content">
+
                     <p>at the Open Legal Lab 2024. It builds on the SCD Viewer, a Shiny webapp created by Caroline,
                         Florian, Gabriele, Luka, Timur, Ulrich and Christophe at the Open Legal Lab 2023, which in turn
                         is based on the data in Geering Florian & Merane Jakob (2023), Swiss Federal Supreme Court
@@ -101,7 +80,7 @@
                 <button onclick="toggleOverlay()">About</button>
             </div>
             <div class="moon">
-            <button onclick="toggleDarkMode()">🌗</button>
+                <button onclick="toggleDarkMode()">🌗</button>
             </div>
         </div>
     </footer>
