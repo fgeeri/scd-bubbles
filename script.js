@@ -55,12 +55,18 @@ function createDots(data) {
 
         dot.addEventListener('mouseenter', function() {
             const id = dot.id;
-            dot.innerHTML = '<a href="https://bger.li/' + id + '" target="_blank">' + id + '</a>';
-          });
-        
-          dot.addEventListener('mouseleave', function() {
+            dot.innerHTML = id;
+        });
+
+        dot.addEventListener('click', function() {
+            // Navigate to the desired URL
+            const id = dot.id;
+            window.open("https://bger.li/" + id, '_blank');
+        });
+    
+        dot.addEventListener('mouseleave', function() {
             dot.textContent = "";
-          });
+        });
 
         // Animate the dot
         animateDot(dot, i, entry);

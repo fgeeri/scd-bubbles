@@ -76,4 +76,5 @@ footer {
 /* Hover effect */
 .dot:hover {
     background-color: lightblue; /* Lighter color on hover */
+    cursor: pointer; /* Change cursor on hover */
   }
