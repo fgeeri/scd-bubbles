@@ -181,6 +181,11 @@ async function handleDateSet(event) {
 const datePicker = document.getElementById('date-picker');
 datePicker.addEventListener('change', handleDateSet);
 
+// Dark mode toggle
+function toggleDarkMode() {
+  var element = document.body;
+  element.classList.toggle("dark-mode");
+} 
 
 // Fetch data and create dots when the page loads
 window.addEventListener('load', async () => {
