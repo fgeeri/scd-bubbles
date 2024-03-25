@@ -36,6 +36,12 @@ footer {
     gap: 60px;
 }
 
+@media only screen and (max-width: 640px) {
+    .footer-bar {
+      gap: 10px; /* Reduced gap for smartphones */
+    }
+  }
+
 .date-selector label {
     margin-right: 10px;
 }
