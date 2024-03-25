@@ -123,6 +123,7 @@ function animateDot(dot, index, entry) {
             currentDate = entry.date;
             updateDateIndicator(entry.date);
         }
+        dot.remove();
     };
 }
 
