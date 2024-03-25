@@ -168,8 +168,7 @@ function playSound(sound) {
     audio.play();
 }
 
-//date picker
-lastDate="";
+// Date picker
 const datePicker = document.getElementById('date-picker');
 const datePickerLabel = document.getElementById('date_display');
 datePicker.addEventListener('change', handleDateSet);
@@ -204,9 +203,9 @@ function toggleDarkMode() {
   element.classList.toggle("dark-mode");
 } 
 
+//Speed change
 function setSpeed(speed) {
     const dots = visualization.querySelectorAll('.dot');
-
     // Loop through each dot and adjust its animation duration
     dots.forEach(dot => {
         const animation = dot.getAnimations()[0]; // Assuming there's only one animation
@@ -218,7 +217,7 @@ function setSpeed(speed) {
     });
 }
 
-//speed slider
+// Speed slider
 const speedSlider = document.getElementById('speed-slider');
 speedSlider.value = speedSliderValue*100;
 speedSlider.addEventListener('change', function(event) {
