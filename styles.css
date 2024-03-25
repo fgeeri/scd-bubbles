@@ -38,7 +38,10 @@ footer {
 
 @media only screen and (max-width: 640px) {
     .footer-bar {
-      gap: 10px; /* Reduced gap for smartphones */
+      gap: 1px; /* Reduced gap for smartphones */
+    }
+    footer{
+        padding-left: 0px;
     }
   }
 
