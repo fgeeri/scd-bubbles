@@ -26,6 +26,7 @@ async function fetchData(startDate = "2007-01-18") {
     }
 }
 
+let speedSliderValue = 1
 const loadBatch = 1000
 let currentDate="";
 const visualization = document.querySelector('.visualization');
@@ -54,6 +55,7 @@ function createDots(data) {
         }
         dot.id = entry.docref;
         dot.color = entry.colour;
+        dot.duration = entry.duration;
         if (entry.leading_case) {
             dot.style.border = '4px solid #B59A62';
         };
@@ -105,10 +107,11 @@ function removeAllDots(){
     });
 }
 
+let animations = [];
 // Function to animate a dot
 function animateDot(dot, index, entry) {
 
-    const animationDuration = 13000 + entry.duration; // Animation duration in milliseconds
+    const animationDuration = (13000 + entry.duration)*speedSliderValue; // Animation duration in milliseconds
     const opacityValue = 0.6 + Math.random() * 0.2
 
     // Start the animation
@@ -124,7 +127,7 @@ function animateDot(dot, index, entry) {
             delay: index * 1000 // Delay based on index
         }
     );
-    
+    animations.push(animation);
     animation.onfinish = function () {
         // Call your function here, animation has finished
         if (new Date(entry.date) > new Date(currentDate)) {
@@ -186,6 +189,35 @@ function toggleDarkMode() {
   var element = document.body;
   element.classList.toggle("dark-mode");
 } 
+
+function setSpeed(speed) {
+    const dots = visualization.querySelectorAll('.dot');
+
+    // Loop through each dot and adjust its animation duration
+    dots.forEach(dot => {
+        const animation = dot.getAnimations()[0]; // Assuming there's only one animation
+        if (animation) {
+            const currentDuration = animation.effect.getTiming().duration;
+            const newDuration = (13000 + dot.duration)/speed; // Adjust speed
+            animation.effect.updateTiming({ duration: newDuration });
+        }
+    });
+}
+
+//speed slider
+const speedSlider = document.getElementById('speed-slider');
+speedSlider.value = speedSliderValue*100;
+speedSlider.addEventListener('input', function(event) {
+    const value = event.target.value; // Get the current value of the slider
+    if(value < 10){
+        speedSliderValue = 0.1;
+    } else{
+        speedSliderValue = value/100;
+    }
+    console.log("Slider value:", speedSliderValue);
+    setSpeed(speedSliderValue);
+    // You can perform any actions you need with the slider value here
+});
 
 // Fetch data and create dots when the page loads
 window.addEventListener('load', async () => {
