@@ -69,6 +69,10 @@ footer {
     margin-right: 40px;
 }
 
+.moon {
+    margin-left: 40px;
+}
+
 .dot {
     position: relative;
     border-radius: 50%;
