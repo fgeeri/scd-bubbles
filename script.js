@@ -21,7 +21,6 @@ async function fetchData(startDate = "2007-01-18") {
 
         return data;
     } catch (error) {
-        console.error('Error fetching data:', error);
         return [];
     }
 }
@@ -141,7 +140,6 @@ function animateDot(dot, index, entry) {
 
 // Function to update the date indicator
 function updateDateIndicator(date) {
-    console.log(datePicker.value)
     datePickerLabel.innerHTML = date;
 }
 
@@ -230,7 +228,6 @@ speedSlider.addEventListener('change', function(event) {
     } else{
         speedSliderValue = value/100;
     }
-    console.log("Slider value:", speedSliderValue);
     setSpeed(speedSliderValue);
     // You can perform any actions you need with the slider value here
 });
