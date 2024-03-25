@@ -217,7 +217,7 @@ function setSpeed(speed) {
 //speed slider
 const speedSlider = document.getElementById('speed-slider');
 speedSlider.value = speedSliderValue*100;
-speedSlider.addEventListener('input', function(event) {
+speedSlider.addEventListener('change', function(event) {
     const value = event.target.value; // Get the current value of the slider
     if(value < 10){
         speedSliderValue = 0.1;
