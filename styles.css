@@ -33,6 +33,7 @@ footer {
 .footer-bar {
     display: flex;
     justify-content: center;
+    gap: 60px;
 }
 
 .date-selector label {
@@ -50,9 +51,7 @@ footer {
 .date-selector {
     width: auto;
     /* Reset width to auto */
-    margin-left: 40px;
-    /* Add some spacing between the volume control and date selector */
-    margin-right: 40px;
+
 }
 
 .date-selector input[type="date"] {
@@ -76,10 +75,6 @@ footer {
 .date-indicator {
     color: white;
     margin-right: 40px;
-}
-
-.moon {
-    margin-left: 40px;
 }
 
 .dot {
