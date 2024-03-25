@@ -47,11 +47,15 @@ function createDots(data) {
         dot.style.top = '100%'; // Set initial position at the bottom of the visualization area
         dot.style.left = Math.random() * 100 + '%'; // Set dot position randomly
         dot.id = entry.docref;
+        if (entry.leading_case) {
+            dot.style.border = '4px solid #B59A62';
+        };
+
         visualization.appendChild(dot);
 
         dot.addEventListener('mouseenter', function() {
             const id = dot.id;
-            dot.textContent = id;
+            dot.innerHTML = '<a href="https://bger.li/' + id + '" target="_blank">' + id + '</a>';
           });
         
           dot.addEventListener('mouseleave', function() {

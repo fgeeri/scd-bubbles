@@ -63,7 +63,14 @@ footer {
 .dot {
     position: relative;
     border-radius: 50%;
+    display: flex;
+    justify-content: center; /* horizontally center */
+    align-items: center; /* vertically center */
+}
 
+.dot a {
+    text-decoration: none;
+    color: #B59A62;
 }
 
 /* Hover effect */
