@@ -140,7 +140,11 @@ function animateDot(dot, index, entry) {
 
 // Function to update the date indicator
 function updateDateIndicator(date) {
-    datePicker.value = date;
+    console.log(datePicker.value)
+    if(datePicker.value!=""){
+        console.log("datpicker was not open")
+        datePicker.value = date;
+    }
 }
 
 // Function to get color based on colour code
@@ -169,6 +173,12 @@ function playSound(sound) {
 }
 
 //date picker
+const datePicker = document.getElementById('date-picker');
+datePicker.addEventListener('change', handleDateSet);
+datePicker.addEventListener("click", function() {
+    datePicker.value="";
+  });
+
 async function handleDateSet(event) {
     const selectedDate = event.target.value;
     if(new Date(selectedDate) > new Date("2023-12-29") || new Date(selectedDate) < new Date("2007-01-18")){
@@ -181,8 +191,6 @@ async function handleDateSet(event) {
         createDots(data);
     }
 }
-const datePicker = document.getElementById('date-picker');
-datePicker.addEventListener('change', handleDateSet);
 
 // Overlay
 function toggleOverlay() {
