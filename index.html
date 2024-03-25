@@ -21,44 +21,44 @@
         <div id="overlay" class="overlay">
             <div class="flex-container">
                 <div class="flex-content">
-                    <h2 id="-scd-bubbles-">scd-bubbles 🫧</h2>
+                    <h2 id="-scd-bubbles-">scd-bubbles</h2>
                     <p><code>scd-bubbles</code> is an open source web app that visualises the decisions of the Swiss
                         Federal Court 🇨🇭🏛. Every judgments is represented by a bubble, with the properties of the
-                        bubbles reflecting information about the case 🫧. It was created at the <a
+                        bubbles reflecting information about the case. It was created at the <a
                             href="https://challenges.openlegallab.ch/event/6">Open Legal Lab 2024</a> and is provided
-                        without any warranty. Source code is licensed under <a
-                            href="https://github.com/fgeeri/scd-bubbles/tree/main#GPL-3.0-1-ov-file">GPL-3.0</a>.</p>
+                        without any warranty. Our source code is on <a href="https://github.com/fgeeri/scd-bubbles/">Github</a>.</p>
                     <p>Bubbles appear in chronological order of the decision date, and their color indicates the case
-                        outcome. Bubble size represents the length of the judgment text. Bubble positioning reflects the
+                        outcome: 
+                        <span style="color: #1a9641">granted</span>, 
+                        <span style="color: #a6d96a">partly granted</span>,
+                        <span style="color: #e6550d">rejected</span>,
+                        <span style="color: #fdae61">inadmissible</span>, or 
+                        <span style="color: #d9d9d9">written off</span>. Bubble size represents the length of the judgment text. Bubble positioning reflects the
                         area of law: Civil law judgments appear in the left third of the screen, public law in the
-                        middle, and criminal law on the right. Judgments that were published as leading cases are
-                        identified with a golden border. On hover, the judgment identifier appears, and by clicking, the
-                        judgment will be displayed on the bger.li website. The half moon icon 🌗 toggles dark mode.</p>
+                        middle, and criminal law on the right. Judgments that were published as leading cases (BGE) are
+                        identified with a golden border.</p>
                     <p><code>scd-bubbles</code> is a fun way to gain an understanding of the caseload that the Swiss
                         Federal Court is dealing with and conveys in a very broad sense information about the decisions
                         taken in a (dis-)aggregated from. It is also suitable for meditative practices.</p>
                 </div>
                 <div class="flex-content" id="credits">
                     <h2 id="--">Credits</h2>
-                    <p><em>Bubbles was created by</em></p>
+                    <p><em>scd-bubbles was created by</em></p>
+                    <p>Florian: Creative Director</p>
                     <p>Jasper: JavaScript Wizard</p>
                     <p>Martin: JavaScript Virtuoso</p>
-                    <p>Florian: Data Junkie</p>
                     <p>Daniel: Head Lawyer</p>
-                    <p>Mark: Pachinko Advisor</p>
-                    <p>Lucile: Game Master</p>
                     <p>Jonas: Sound Designer</p>
+                    <p>Lucile: Game Master</p>
+                    <p>Mark: Pachinko Advisor</p>
                     <p>Caroline: Guest Appearance</p>
                 <div class="flex-content">
 
-                    <p>at the Open Legal Lab 2024. It builds on the SCD Viewer, a Shiny webapp created by Caroline,
-                        Florian, Gabriele, Luka, Timur, Ulrich and Christophe at the Open Legal Lab 2023, which in turn
-                        is based on the data in Geering Florian & Merane Jakob (2023), Swiss Federal Supreme Court
-                        Dataset (SCD), availabe on Zenodo.</p>
-                    <p>Our and ♥-felt thanks go out to the people from Open Data and eJustice.ch for organizing the
-                        exceptional Open Legal Lab at the welcoming Swiss Olympic House in Magglingen, Coop Rechtsschutz
-                        for the delicious Egger Bier, all the other sponsors for their financial support and all the
-                        fellow hackathonistas for their much appreciated and honest feedback.</p>
+                    <p>scd-bubbles builds on the <a href="https://scdv.legaldata.ch">SCD Viewer</a>, a Shiny webapp created by Caroline, Florian, Gabriele, Luka, Timur, Ulrich and Christophe at the Open Legal Lab 2023, and uses the data in the <a href="https://zenodo.org/doi/10.5281/zenodo.7793043">Swiss Federal Supreme Court Dataset (SCD)</a>by Florian Geering and Jakob Merane, Zenodo 2023-2024, DOI 10.5281/zenodo.7793043.</p>
+                    <p>Our ♥-felt thanks go out to the people from Open Data and eJustice.ch for organizing the
+                        Open Legal Lab in Magglingen, Coop Rechtsschutz
+                        for the delicious Egger Bier and all the other sponsors for their financial support, and all the
+                        fellow hackathonistas for their much appreciated interest and feedback.</p>
                 </div>
             </div>
             <!-- Data visualization area (will be populated by JavaScript) -->
