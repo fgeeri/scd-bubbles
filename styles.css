@@ -33,7 +33,11 @@ footer {
 }
 
 .volume-control input[type="range"] {
-    width: 100px;
+   width: 100px; 
+}
+
+.speed-control input[type="range"] {
+   width: 100px; 
 }
 
 .date-selector {
