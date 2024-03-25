@@ -34,7 +34,8 @@ function createDots(data) {
         
     //Set the start date
     currentDate=data[0].date;
-    datePicker.value=data[0].date;
+    datePickerLabel.innerHTML=data[0].date;
+    datePicker.value="";
 
     // Loop through the data and create a dot for each entry
     for (let i = 0; i < loadBatch; i++) {
@@ -141,10 +142,7 @@ function animateDot(dot, index, entry) {
 // Function to update the date indicator
 function updateDateIndicator(date) {
     console.log(datePicker.value)
-    if(datePicker.value!=""){
-        console.log("datpicker was not open")
-        datePicker.value = date;
-    }
+    datePickerLabel.innerHTML = date;
 }
 
 // Function to get color based on colour code
@@ -175,18 +173,12 @@ function playSound(sound) {
 //date picker
 lastDate="";
 const datePicker = document.getElementById('date-picker');
+const datePickerLabel = document.getElementById('date_display');
 datePicker.addEventListener('change', handleDateSet);
-datePicker.addEventListener("click", function() {
-    if(datePicker.value==""){
-        datePicker.value=lastDate;
-    } else {
-        lastDate=datePicker.value;
-        datePicker.value="";
-    }
-  });
 
 async function handleDateSet(event) {
     const selectedDate = event.target.value;
+    datePicker.value="";
     if(new Date(selectedDate) > new Date("2023-12-29") || new Date(selectedDate) < new Date("2007-01-18")){
         alert('Select a date beween 2007-01-18 and 2023-12-29.');
     } else{
