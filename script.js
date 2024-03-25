@@ -102,12 +102,13 @@ function removeAllDots(){
 function animateDot(dot, index, entry) {
 
     const animationDuration = 13000 + entry.duration; // Animation duration in milliseconds
+    const opacityValue = 0.6 + Math.random() * 0.2
 
     // Start the animation
     let animation = dot.animate(
         [
-            { top: '100%', opacity: 0.8 }, // From bottom with opacity
-            { top: '-200px', opacity: 0.8 } // To top with opacity
+            { top: '100%', opacity: opacityValue }, // From bottom with opacity
+            { top: '-200px', opacity: opacityValue } // To top with opacity
         ],
         {
             duration: animationDuration, // Duration with delay based on index
