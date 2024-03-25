@@ -129,8 +129,7 @@ function animateDot(dot, index, entry) {
 
 // Function to update the date indicator
 function updateDateIndicator(date) {
-    const dateIndicator = document.querySelector('.date-indicator');
-    dateIndicator.textContent = date;
+    datePicker.value = date;
 }
 
 // Function to get color based on colour code
