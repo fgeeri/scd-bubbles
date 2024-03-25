@@ -34,7 +34,7 @@ function createDots(data) {
         
     //Set the start date
     currentDate=data[0].date;
-    updateDateIndicator(data[0].date);
+    datePicker.value=data[0].date;
 
     // Loop through the data and create a dot for each entry
     for (let i = 0; i < loadBatch; i++) {
@@ -173,10 +173,16 @@ function playSound(sound) {
 }
 
 //date picker
+lastDate="";
 const datePicker = document.getElementById('date-picker');
 datePicker.addEventListener('change', handleDateSet);
 datePicker.addEventListener("click", function() {
-    datePicker.value="";
+    if(datePicker.value==""){
+        datePicker.value=lastDate;
+    } else {
+        lastDate=datePicker.value;
+        datePicker.value="";
+    }
   });
 
 async function handleDateSet(event) {
