@@ -45,8 +45,15 @@ function createDots(data) {
         dot.style.height = (entry.size / 200) + 'px'; // Set dot size
         dot.style.position = 'absolute'; // Set position to absolute for manual positioning
         dot.style.top = '100%'; // Set initial position at the bottom of the visualization area
-        dot.style.left = Math.random() * 100 + '%'; // Set dot position randomly
+        if(entry.area_general=="s"){
+            dot.style.left = 66 + Math.random() * 33 + '%';
+        } else if(entry.area_general=="o"){
+            dot.style.left = 33 + Math.random() * 33 + '%';
+        } else if(entry.area_general=="p"){
+            dot.style.left = 0 + Math.random() * 33 + '%';
+        }
         dot.id = entry.docref;
+        dot.color = entry.colour;
         if (entry.leading_case) {
             dot.style.border = '4px solid #B59A62';
         };
@@ -116,7 +123,7 @@ function animateDot(dot, index, entry) {
             delay: index * 1000 // Delay based on index
         }
     );
-            // Call a function when the animation starts
+    
     animation.onfinish = function () {
         // Call your function here, animation has finished
         if (new Date(entry.date) > new Date(currentDate)) {
