@@ -1,7 +1,7 @@
 ## `scd-bubbles` 🫧
 `scd-bubbles` is an open source web app that visualises the decisions of the Swiss Federal Court 🇨🇭🏛. Every judgments is represented by a bubble, with the properties of the bubbles reflecting information about the case 🫧.
 
-Bubbles appear in chronological order of the decision date, and their color indicates the case outcome. Bubble size represents the length of the judgment text.
+Bubbles appear in chronological order of the decision date, and their color indicates the case outcome. Bubble size represents the length of the judgment text. Bubble positioning reflects the area of law: Civil law judgments appear in the left third of the screen, public law in the middle, and criminal law on the right. Judgments that were published as leading cases are identified with a golden border. On hover, the judgment identifier appears, and by clicking, the judgment will be displayed on the bger.li website. The half moon icon 🌗 toggles dark mode.
 
 `scd-bubbles` is a fun way to gain an understanding of the caseload that the Swiss Federal Court is dealing with and conveys in a very broad sense information about the decisions taken in a (dis-)aggregated from. It is also suitable for meditative practices.
 
